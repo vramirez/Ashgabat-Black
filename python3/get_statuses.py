@@ -3,7 +3,7 @@
 import os,configparser,math,sys,time,tweepy,json
 
 config = configparser.RawConfigParser()
-config.read('../twauth.properties')
+config.read('twauth.properties')
 
 
 consumer_key=config.get('OAuth','key')
