@@ -15,29 +15,30 @@ access_secret=config.get('OAuth','token_secret')
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
-scream_name="jrobertoacosta1"
+scream_name="transmilenio"
 
 if len(sys.argv)>1 :
         scream_name=str.lower(sys.argv[1])
 
-filename=scream_name+".json"
-alltweets=[]
-tweets = api.user_timeline(screen_name = scream_name,count=200)
-alltweets.extend(tweets)
-oldest = alltweets[-1].id -1
-
-
-while (len(tweets)>1):
-	tweets = api.user_timeline(screen_name = scream_name,count=200,max_id=oldest)
+for scream_name in sys.argv[1].split(",")
+	filename=scream_name+".json"
+	alltweets=[]
+	tweets = api.user_timeline(screen_name = scream_name,count=200)
 	alltweets.extend(tweets)
-	oldest = alltweets[-1].id -1 	
-	print("Nuevos:"+str(len(tweets))+" total van: "+str(len(alltweets)))
+	oldest = alltweets[-1].id -1
 
 
-for tweet in alltweets:
-	with open(filename, 'a+') as outfile:
-	        json.dump(tweet._json, outfile)
-	        outfile.write("\n")
-	        outfile.close()
+	while (len(tweets)>1):
+		tweets = api.user_timeline(screen_name = scream_name,count=200,max_id=oldest)
+		alltweets.extend(tweets)
+		oldest = alltweets[-1].id -1 	
+		print("Nuevos:"+str(len(tweets))+" total van: "+str(len(alltweets)))
+
+
+	for tweet in alltweets:
+		with open(filename, 'a+') as outfile:
+			json.dump(tweet._json, outfile)
+			outfile.write("\n")
+			outfile.close()
 	
 
