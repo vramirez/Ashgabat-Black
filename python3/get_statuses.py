@@ -20,7 +20,7 @@ scream_name="transmilenio"
 if len(sys.argv)>1 :
         scream_name=str.lower(sys.argv[1])
 
-for scream_name in sys.argv[1].split(",")
+for scream_name in sys.argv[1].split(","):
 	filename=scream_name+".json"
 	alltweets=[]
 	tweets = api.user_timeline(screen_name = scream_name,count=200)
