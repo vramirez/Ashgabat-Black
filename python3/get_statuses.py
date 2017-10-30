@@ -21,6 +21,7 @@ if len(sys.argv)>1 :
         scream_name=str.lower(sys.argv[1])
 
 for scream_name in sys.argv[1].split(","):
+	print("Downloading up to 3200 most recent tweets from: "+scream_name)
 	filename=scream_name+".json"
 	alltweets=[]
 	tweets = api.user_timeline(screen_name = scream_name,count=200)
@@ -32,7 +33,7 @@ for scream_name in sys.argv[1].split(","):
 		tweets = api.user_timeline(screen_name = scream_name,count=200,max_id=oldest)
 		alltweets.extend(tweets)
 		oldest = alltweets[-1].id -1 	
-		print("Nuevos:"+str(len(tweets))+" total van: "+str(len(alltweets)))
+		print("Getting new:"+str(len(tweets))+" total: "+str(len(alltweets)))
 
 
 	for tweet in alltweets:
