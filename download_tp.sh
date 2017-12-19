@@ -1,0 +1,2 @@
+python3 python3/get_statuses.py basubte,megabusenmarcha,metrocali,metro_caracas,metrocdmx,metrodemedellin,metrodesantiago,metrolimacallao,metrolinea,MetroMtyOficial,metro_rio,metrosp_oficial,MetroValpo,OPRET_RD,transmetrobaq,transmilenio
+
