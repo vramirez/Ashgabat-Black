@@ -16,15 +16,24 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 scream_name="transmilenio"
+<<<<<<< HEAD
 tudei=time.strftime("%Y%m%d")
+=======
+>>>>>>> fabcaead1ca491846e59a637066f34a715cc82ce
 
 if len(sys.argv)>1 :
         scream_name=str.lower(sys.argv[1])
 
+<<<<<<< HEAD
 
 for scream_name in sys.argv[1].split(","):
 	print("Downloading up to 3200 most recent tweets from: "+scream_name)
 	filename=scream_name+"_tweets_"+tudei+".json"
+=======
+for scream_name in sys.argv[1].split(","):
+	print("Downloading up to 3200 most recent tweets from: "+scream_name)
+	filename=scream_name+".json"
+>>>>>>> fabcaead1ca491846e59a637066f34a715cc82ce
 	alltweets=[]
 	tweets = api.user_timeline(screen_name = scream_name,count=200)
 	alltweets.extend(tweets)
