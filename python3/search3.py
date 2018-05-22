@@ -23,9 +23,9 @@ filename+=".json"
 all_tweets=[]
 print("Downloading Search Tweets")
 if(oldest==0):
-	query = t.search.tweets(q=searchit,count=1000)
+	query = t.search.tweets(q=searchit,count=1000,tweet_mode='extended')
 else:
-	query = t.search.tweets(q=searchit,count=1000,max_id=oldest-1)
+	query = t.search.tweets(q=searchit,count=1000,max_id=oldest-1,tweet_mode='extended')
 
 #all_tweets.extend(query['statuses'])
 #oldest=all_tweets[-1]['id']

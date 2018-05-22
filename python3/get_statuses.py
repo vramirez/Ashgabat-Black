@@ -26,13 +26,13 @@ for scream_name in sys.argv[1].split(","):
 	print("Downloading up to 3200 most recent tweets from: "+scream_name)
 	filename=scream_name+"_tweets_"+tudei+".json"
 	alltweets=[]
-	tweets = api.user_timeline(screen_name = scream_name,count=200)
+	tweets = api.user_timeline(screen_name = scream_name,count=200,tweet_mode='extended')
 	alltweets.extend(tweets)
 	oldest = alltweets[-1].id -1
 
 
 	while (len(tweets)>1):
-		tweets = api.user_timeline(screen_name = scream_name,count=200,max_id=oldest)
+		tweets = api.user_timeline(screen_name = scream_name,count=200,max_id=oldest,tweet_mode='extended')
 		alltweets.extend(tweets)
 		oldest = alltweets[-1].id -1 	
 		print("Getting new:"+str(len(tweets))+" total: "+str(len(alltweets)))
