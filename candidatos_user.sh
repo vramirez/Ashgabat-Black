@@ -1,1 +1,1 @@
-python3 python3/get_user.py petrogustavo,ivan_duque,alvarouribevel,german_vargas,sergio_fajardo,delacallehum,mluciaramirez
+python3 python3/get_user.py petrogustavo,ivanduque,alvarouribevel,german_vargas,sergio_fajardo,delacallehum,mluciaramirez
