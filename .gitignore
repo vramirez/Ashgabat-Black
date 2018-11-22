@@ -1,2 +1,4 @@
 # Twitter password files
 *.properties
+*.json*
+nohup*
