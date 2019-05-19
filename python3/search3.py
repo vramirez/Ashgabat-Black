@@ -9,8 +9,8 @@ access_secret = config.get('OAuth','token_secret')
 oauth = OAuth(access_key, access_secret,consumer_key,consumer_secret)
 t = Twitter(auth=oauth)
 
-#searchit='#EllosEstánAquí'
 oldest=0
+retweets=True
 if len(sys.argv)>2 : 
 	searchit=sys.argv[1]
 	filename=sys.argv[2]
@@ -23,9 +23,11 @@ filename+=".json"
 all_tweets=[]
 print("Downloading Search Tweets")
 if(oldest==0):
-	query = t.search.tweets(q=searchit,count=1000,tweet_mode='extended')
+	#query = t.search.tweets(q=searchit,count=1000,tweet_mode='extended')
+	query = t.search.tweets(q=searchit,count=1000,tweet_mode='extended',include_rts=retweets)
 else:
-	query = t.search.tweets(q=searchit,count=1000,max_id=oldest-1,tweet_mode='extended')
+	#query = t.search.tweets(q=searchit,count=1000,max_id=oldest-1,tweet_mode='extended')
+	query = t.search.tweets(q=searchit,count=1000,max_id=oldest-1,tweet_mode='extended',include_rts=retweets)
 
 #all_tweets.extend(query['statuses'])
 #oldest=all_tweets[-1]['id']
