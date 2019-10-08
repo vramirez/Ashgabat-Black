@@ -10,7 +10,7 @@ oauth = OAuth(access_key, access_secret,consumer_key,consumer_secret)
 t = Twitter(auth=oauth)
 
 oldest=0
-retweets=True
+retweets=False
 if len(sys.argv)>2 : 
 	searchit=sys.argv[1]
 	filename=sys.argv[2]
